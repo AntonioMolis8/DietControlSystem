@@ -9,8 +9,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="Categories")
-public class Category {
+@Table(name = "TypeOfMeal")
+public class TypeOfMeal {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,36 +18,36 @@ public class Category {
 	private Integer id;
 	
 	@NotNull
-	@Column(name = "name")
-	private String name;
+	@Column(name = "type")
+	private String type;
 	
-	public Category() {}
+	public TypeOfMeal () {};
 	
-	public Category(String name) {
-		this.name = name;
+	public TypeOfMeal (String type) {
+		this.type = type;
 	}
 
 	public Integer getId() {
 		return id;
 	}
 
-	public String getName() {
-		return name;
+	public String getType() {
+		return type;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setType(String type) {
+		this.type = type;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Category [id=");
+		builder.append("TypeOfMeal [id=");
 		builder.append(id);
-		builder.append(", name=");
-		builder.append(name);
+		builder.append(", type=");
+		builder.append(type);
 		builder.append("]");
 		return builder.toString();
 	}
-	
+
 }
