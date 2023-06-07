@@ -1,60 +1,21 @@
-package com.agm.DietControlSystem.model.entity;
+package com.agm.DietControlSystem.model.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-@Entity
-@Table(name = "Products")
-public class Product {
+public class ProductDTO {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
 	private Long id;
-	
-	@NotNull
-	@Column(name = "name")
 	private String name;
-	
-	@NotNull
-	@Column(name = "category")
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Categories_id", referencedColumnName = "id")
-	private Integer category;
-	
-	@Column(name = "brand")
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Brands_id", referencedColumnName = "id")
-	private Integer brand;
-	
-	@NotNull
-	@Column(name = "calories")
+	private String category;
+	private String brand;
 	private Float calories;
-	
-	@NotNull
-	@Column(name = "proteins")
 	private Float proteins;
-	
-	@NotNull
-	@Column(name = "referenceQty")
 	private Integer referenceQty;
-	
-	@NotNull
-	@Column(name = "measureUnit")
 	private String measureUnit;
 	
-	public Product() {};
+	public ProductDTO() {}
 
-	public Product(String name, Integer category, Integer brand, Float calories, Float proteins, Integer referenceQty,
-			String measureUnit) {
+	public ProductDTO(Long id, String name, String category, String brand, Float calories, Float proteins,
+			Integer referenceQty, String measureUnit) {
+		this.id = id;
 		this.name = name;
 		this.category = category;
 		this.brand = brand;
@@ -68,6 +29,10 @@ public class Product {
 		return id;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -76,19 +41,19 @@ public class Product {
 		this.name = name;
 	}
 
-	public Integer getCategory() {
+	public String getCategory() {
 		return category;
 	}
 
-	public void setCategory(Integer category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 
-	public Integer getBrand() {
+	public String getBrand() {
 		return brand;
 	}
 
-	public void setBrand(Integer brand) {
+	public void setBrand(String brand) {
 		this.brand = brand;
 	}
 
@@ -127,7 +92,7 @@ public class Product {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Product [id=");
+		builder.append("ProductDTO [id=");
 		builder.append(id);
 		builder.append(", name=");
 		builder.append(name);
@@ -145,8 +110,6 @@ public class Product {
 		builder.append(measureUnit);
 		builder.append("]");
 		return builder.toString();
-	}
+	};
 	
 }
-
-

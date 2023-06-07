@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "TypeOfMeal")
-public class TypeOfMeal {
+public class TypeOfMealEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,9 +21,9 @@ public class TypeOfMeal {
 	@Column(name = "type")
 	private String type;
 	
-	public TypeOfMeal () {};
+	public TypeOfMealEntity () {};
 	
-	public TypeOfMeal (String type) {
+	public TypeOfMealEntity (String type) {
 		this.type = type;
 	}
 

@@ -9,8 +9,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="Categories")
-public class Category {
+@Table(name="Brands")
+public class BrandEntity {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,13 +20,13 @@ public class Category {
 	@NotNull
 	@Column(name = "name")
 	private String name;
+
+	public BrandEntity () {};
 	
-	public Category() {}
-	
-	public Category(String name) {
+	public BrandEntity (String name) {
 		this.name = name;
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -42,7 +42,7 @@ public class Category {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Category [id=");
+		builder.append("Brand [id=");
 		builder.append(id);
 		builder.append(", name=");
 		builder.append(name);
