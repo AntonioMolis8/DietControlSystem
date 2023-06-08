@@ -25,12 +25,10 @@ public class ProductEntity {
 	private String name;
 	
 	@NotNull
-	@Column(name = "category")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Categories_id", referencedColumnName = "id")
 	private Integer category;
 	
-	@Column(name = "brand")
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "Brands_id", referencedColumnName = "id")
 	private Integer brand;
