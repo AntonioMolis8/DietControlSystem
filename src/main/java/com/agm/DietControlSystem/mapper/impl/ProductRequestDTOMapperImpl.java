@@ -1,9 +1,12 @@
 package com.agm.DietControlSystem.mapper.impl;
 
+import org.springframework.stereotype.Component;
+
 import com.agm.DietControlSystem.mapper.ProductRequestDTOMapper;
 import com.agm.DietControlSystem.model.dto.ProductDTO;
 import com.agm.DietControlSystem.model.request.ProductRequest;
 
+@Component
 public class ProductRequestDTOMapperImpl implements ProductRequestDTOMapper{
 
 	@Override
