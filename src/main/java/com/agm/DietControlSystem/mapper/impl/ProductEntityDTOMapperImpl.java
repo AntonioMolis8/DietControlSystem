@@ -25,7 +25,13 @@ public class ProductEntityDTOMapperImpl implements ProductEntityDTOMapper{
 		dto.setId(entity.getId());
 		dto.setName(entity.getName());
 		dto.setCategory(categories.get(entity.getCategory().intValue()));
-		dto.setBrand(brands.get(entity.getBrand().intValue()));
+		
+		if(entity.getBrand() == null) {
+			dto.setBrand("Genérico");
+		} else {
+			dto.setBrand(brands.get(entity.getBrand().intValue()));
+		}
+		
 		dto.setCalories(entity.getCalories());
 		dto.setProteins(entity.getProteins());
 		dto.setReferenceQty(entity.getReferenceQty());
@@ -72,7 +78,7 @@ public class ProductEntityDTOMapperImpl implements ProductEntityDTOMapper{
 	
 	private ArrayList<String> setUpBrands() {
 		brands = new ArrayList<>();
-		categories.add("");
+		brands.add("");
 		brands.add("HACENDADO");
 		return brands;
 	}

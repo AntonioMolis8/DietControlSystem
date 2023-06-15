@@ -25,12 +25,12 @@ public class ProductEntity {
 	private String name;
 	
 	@NotNull
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Categories_id", referencedColumnName = "id")
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "Categories_id", referencedColumnName = "id")
 	private Integer category;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Brands_id", referencedColumnName = "id")
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "Brands_id", referencedColumnName = "id")
 	private Integer brand;
 	
 	@NotNull
@@ -42,11 +42,11 @@ public class ProductEntity {
 	private Float proteins;
 	
 	@NotNull
-	@Column(name = "referenceQty")
+	@Column(name = "referenceqty")
 	private Integer referenceQty;
 	
 	@NotNull
-	@Column(name = "measureUnit")
+	@Column(name = "measureunit")
 	private String measureUnit;
 	
 	public ProductEntity() {};
