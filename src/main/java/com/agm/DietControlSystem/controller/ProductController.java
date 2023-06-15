@@ -14,7 +14,7 @@ import com.agm.DietControlSystem.model.request.ProductRequest;
 import com.agm.DietControlSystem.service.ProductService;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/api/products")
 public class ProductController {
 	
 	@Autowired
@@ -26,7 +26,7 @@ public class ProductController {
 		this.productService = productService;
 	}
 	
-	@GetMapping("/products")
+	@GetMapping("")
 	public List<ProductRequest> findAllProducts() {
 		List<ProductRequest> response = new ArrayList<>();
 		
