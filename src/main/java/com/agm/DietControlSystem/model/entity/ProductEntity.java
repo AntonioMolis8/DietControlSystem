@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 public class ProductEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
 	
@@ -25,21 +25,21 @@ public class ProductEntity {
 	private String name;
 	
 	@NotNull
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "Categories_id", referencedColumnName = "id")
-	private Integer category;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "category", referencedColumnName = "id")
+	private CategoryEntity category;
 	
-//	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name = "Brands_id", referencedColumnName = "id")
-	private Integer brand;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "brand", referencedColumnName = "id")
+	private BrandEntity brand;
 	
 	@NotNull
 	@Column(name = "calories")
-	private Float calories;
+	private Integer calories;
 	
 	@NotNull
 	@Column(name = "proteins")
-	private Float proteins;
+	private Integer proteins;
 	
 	@NotNull
 	@Column(name = "referenceqty")
@@ -49,10 +49,10 @@ public class ProductEntity {
 	@Column(name = "measureunit")
 	private String measureUnit;
 	
-	public ProductEntity() {};
+	public ProductEntity() {}
 
-	public ProductEntity(String name, Integer category, Integer brand, Float calories, Float proteins, Integer referenceQty,
-			String measureUnit) {
+	public ProductEntity(String name, CategoryEntity category, BrandEntity brand, Integer calories, 
+			Integer proteins, Integer referenceQty, String measureUnit) {
 		this.name = name;
 		this.category = category;
 		this.brand = brand;
@@ -78,35 +78,35 @@ public class ProductEntity {
 		this.name = name;
 	}
 
-	public Integer getCategory() {
+	public CategoryEntity getCategory() {
 		return category;
 	}
 
-	public void setCategory(Integer category) {
+	public void setCategory(CategoryEntity category) {
 		this.category = category;
 	}
 
-	public Integer getBrand() {
+	public BrandEntity getBrand() {
 		return brand;
 	}
 
-	public void setBrand(Integer brand) {
+	public void setBrand(BrandEntity brand) {
 		this.brand = brand;
 	}
 
-	public Float getCalories() {
+	public Integer getCalories() {
 		return calories;
 	}
 
-	public void setCalories(Float calories) {
+	public void setCalories(Integer calories) {
 		this.calories = calories;
 	}
 
-	public Float getProteins() {
+	public Integer getProteins() {
 		return proteins;
 	}
 
-	public void setProteins(Float proteins) {
+	public void setProteins(Integer proteins) {
 		this.proteins = proteins;
 	}
 
@@ -129,7 +129,7 @@ public class ProductEntity {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Product [id=");
+		builder.append("ProductEntity [id=");
 		builder.append(id);
 		builder.append(", name=");
 		builder.append(name);
@@ -147,8 +147,8 @@ public class ProductEntity {
 		builder.append(measureUnit);
 		builder.append("]");
 		return builder.toString();
-	}
-	
+	};
+		
 }
 
 
