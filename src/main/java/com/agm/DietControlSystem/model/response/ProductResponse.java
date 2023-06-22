@@ -1,19 +1,19 @@
-package com.agm.DietControlSystem.model.request;
+package com.agm.DietControlSystem.model.response;
 
-public class ProductRequest {
+public class ProductResponse {
 	
 	private Long id;
 	private String name;
 	private String category;
 	private String brand;
-	private Float calories;
-	private Float proteins;
+	private Integer calories;
+	private Integer proteins;
 	private Integer referenceQty;
 	private String measureUnit;
 	
-	public ProductRequest() {}
+	public ProductResponse() {}
 
-	public ProductRequest(Long id, String name, String category, String brand, Float calories, Float proteins,
+	public ProductResponse(Long id, String name, String category, String brand, Integer calories, Integer proteins,
 			Integer referenceQty, String measureUnit) {
 		this.id = id;
 		this.name = name;
@@ -57,19 +57,19 @@ public class ProductRequest {
 		this.brand = brand;
 	}
 
-	public Float getCalories() {
+	public Integer getCalories() {
 		return calories;
 	}
 
-	public void setCalories(Float calories) {
+	public void setCalories(Integer calories) {
 		this.calories = calories;
 	}
 
-	public Float getProteins() {
+	public Integer getProteins() {
 		return proteins;
 	}
 
-	public void setProteins(Float proteins) {
+	public void setProteins(Integer proteins) {
 		this.proteins = proteins;
 	}
 

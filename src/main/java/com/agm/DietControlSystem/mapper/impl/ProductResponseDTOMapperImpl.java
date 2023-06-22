@@ -2,15 +2,15 @@ package com.agm.DietControlSystem.mapper.impl;
 
 import org.springframework.stereotype.Component;
 
-import com.agm.DietControlSystem.mapper.ProductRequestDTOMapper;
+import com.agm.DietControlSystem.mapper.ProductResponseDTOMapper;
 import com.agm.DietControlSystem.model.dto.ProductDTO;
-import com.agm.DietControlSystem.model.request.ProductRequest;
+import com.agm.DietControlSystem.model.response.ProductResponse;
 
 @Component
-public class ProductRequestDTOMapperImpl implements ProductRequestDTOMapper{
+public class ProductResponseDTOMapperImpl implements ProductResponseDTOMapper{
 
 	@Override
-	public ProductDTO mapToDTO(ProductRequest request) {
+	public ProductDTO mapToDTO(ProductResponse request) {
 		ProductDTO dto = new ProductDTO();
 		dto.setId(request.getId());
 		dto.setName(request.getName());
@@ -24,8 +24,8 @@ public class ProductRequestDTOMapperImpl implements ProductRequestDTOMapper{
 	}
 
 	@Override
-	public ProductRequest mapToRequest(ProductDTO dto) {
-		ProductRequest request = new ProductRequest();
+	public ProductResponse mapToResponse(ProductDTO dto) {
+		ProductResponse request = new ProductResponse();
 		request.setId(dto.getId());
 		request.setName(dto.getName());
 		request.setCategory(dto.getCategory());
