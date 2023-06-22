@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 public class BrandEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
 	
@@ -29,6 +29,10 @@ public class BrandEntity {
 	
 	public Integer getId() {
 		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {
