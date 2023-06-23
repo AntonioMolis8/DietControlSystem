@@ -6,8 +6,8 @@ import com.agm.DietControlSystem.model.dto.ProductDTO;
 
 public interface ProductService {
 	
-	public List<ProductDTO> findAllProducts();
-//	public List<ProductDTO> findProduct(ProductDTO productDTO);
-//	public List<ProductDTO> findProductByCategory(String category);
+	public List<ProductDTO> findAll();
+	public ProductDTO findById(Long id);
+	public List<ProductDTO> findProductsByCategory(String category);
 
 }

@@ -1,6 +1,5 @@
 package com.agm.DietControlSystem.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,9 +24,21 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<ProductDTO> findAllProducts() {
-		List<ProductDTO> products = new ArrayList<>();
-		products=productRepository.findAll().stream()
+	public List<ProductDTO> findAll() {
+		List<ProductDTO> products=productRepository.findAll().stream()
+				.map((p) -> productEntityDTOMapper.mapToDTO(p)).collect(Collectors.toList());
+		
+		return products;
+	}
+	
+	@Override
+	public ProductDTO findById(Long id) {
+		return productEntityDTOMapper.mapToDTO(productRepository.findById(id).get());
+	}
+
+	@Override
+	public List<ProductDTO> findProductsByCategory(String categoryName) {
+		List<ProductDTO> products = productRepository.findByCategory(categoryName).stream()
 				.map((p) -> productEntityDTOMapper.mapToDTO(p)).collect(Collectors.toList());
 		
 		return products;
