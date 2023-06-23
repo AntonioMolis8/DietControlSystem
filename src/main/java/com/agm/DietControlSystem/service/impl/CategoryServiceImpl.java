@@ -32,4 +32,14 @@ public class CategoryServiceImpl implements CategoryService{
 		return categories;
 	}
 
+	@Override
+	public CategoryDTO findById(Integer id) {
+		return categoryEntityDTOMapper.mapToDTO(categoryRepository.findById(id).get());
+	}
+
+	@Override
+	public CategoryDTO findByName(String name) {
+		return categoryEntityDTOMapper.mapToDTO(categoryRepository.findByName(name));
+	}
+
 }

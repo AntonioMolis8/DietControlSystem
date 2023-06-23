@@ -7,5 +7,7 @@ import com.agm.DietControlSystem.model.dto.CategoryDTO;
 public interface CategoryService {
 	
 	public List<CategoryDTO> findAll();
+	public CategoryDTO findById(Integer id);
+	public CategoryDTO findByName(String name);
 
 }
