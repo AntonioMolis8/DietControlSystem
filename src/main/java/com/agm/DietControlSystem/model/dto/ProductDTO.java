@@ -7,13 +7,13 @@ public class ProductDTO {
 	private String category;
 	private String brand;
 	private Integer calories;
-	private Integer proteins;
+	private Float proteins;
 	private Integer referenceQty;
 	private String measureUnit;
 	
 	public ProductDTO() {}
 
-	public ProductDTO(Long id, String name, String category, String brand, Integer calories, Integer proteins,
+	public ProductDTO(Long id, String name, String category, String brand, Integer calories, Float proteins,
 			Integer referenceQty, String measureUnit) {
 		this.id = id;
 		this.name = name;
@@ -65,11 +65,11 @@ public class ProductDTO {
 		this.calories = calories;
 	}
 
-	public Integer getProteins() {
+	public Float getProteins() {
 		return proteins;
 	}
 
-	public void setProteins(Integer proteins) {
+	public void setProteins(Float proteins) {
 		this.proteins = proteins;
 	}
 

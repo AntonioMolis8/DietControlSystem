@@ -39,7 +39,7 @@ public class ProductEntity {
 	
 	@NotNull
 	@Column(name = "proteins")
-	private Integer proteins;
+	private Float proteins;
 	
 	@NotNull
 	@Column(name = "referenceqty")
@@ -52,7 +52,7 @@ public class ProductEntity {
 	public ProductEntity() {}
 
 	public ProductEntity(String name, CategoryEntity category, BrandEntity brand, Integer calories, 
-			Integer proteins, Integer referenceQty, String measureUnit) {
+			Float proteins, Integer referenceQty, String measureUnit) {
 		this.name = name;
 		this.category = category;
 		this.brand = brand;
@@ -102,11 +102,11 @@ public class ProductEntity {
 		this.calories = calories;
 	}
 
-	public Integer getProteins() {
+	public Float getProteins() {
 		return proteins;
 	}
 
-	public void setProteins(Integer proteins) {
+	public void setProteins(Float proteins) {
 		this.proteins = proteins;
 	}
 
