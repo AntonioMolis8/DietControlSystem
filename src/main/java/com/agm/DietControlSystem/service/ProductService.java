@@ -9,5 +9,6 @@ public interface ProductService {
 	public List<ProductDTO> findAll();
 	public ProductDTO findById(Long id);
 	public List<ProductDTO> findProductsByCategory(String category);
+	public List<ProductDTO> findProductsOverXProteins(Float proteins);
 
 }

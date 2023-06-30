@@ -16,5 +16,10 @@ public interface ProductRepository extends JpaRepository<ProductEntity, Long>{
 	
 	@Query(value = "SELECT * FROM Products WHERE category=(SELECT id FROM Categories WHERE name = :categoryName)", nativeQuery = true)
 	List<ProductEntity> findByCategory (String categoryName);
+	
+	@Query(value = "SELECT * FROM Products WHERE proteins > :proteins", nativeQuery = true)
+	List<ProductEntity> findProductsOverXProteins (Float proteins);
+	
+	
 
 }
