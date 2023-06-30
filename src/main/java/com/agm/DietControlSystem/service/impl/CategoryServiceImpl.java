@@ -2,6 +2,7 @@ package com.agm.DietControlSystem.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.agm.DietControlSystem.mapper.CategoryEntityDTOMapper;
 import com.agm.DietControlSystem.model.dto.CategoryDTO;
+import com.agm.DietControlSystem.model.entity.CategoryEntity;
 import com.agm.DietControlSystem.repository.CategoryRepository;
 import com.agm.DietControlSystem.service.CategoryService;
 
@@ -34,12 +36,18 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public CategoryDTO findById(Integer id) {
-		return categoryEntityDTOMapper.mapToDTO(categoryRepository.findById(id).get());
+		Optional<CategoryEntity> category = categoryRepository.findById(id);
+		
+		return category.isPresent() ? categoryEntityDTOMapper.mapToDTO(category.get())
+				: null;
 	}
 
 	@Override
 	public CategoryDTO findByName(String name) {
-		return categoryEntityDTOMapper.mapToDTO(categoryRepository.findByName(name));
+		Optional<CategoryEntity> category = categoryRepository.findByName(name);
+		
+		return category.isPresent() ? categoryEntityDTOMapper.mapToDTO(category.get())
+				: null;
 	}
 
 }
