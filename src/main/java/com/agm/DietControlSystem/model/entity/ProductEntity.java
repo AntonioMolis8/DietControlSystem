@@ -1,5 +1,7 @@
 package com.agm.DietControlSystem.model.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -48,6 +51,9 @@ public class ProductEntity {
 	@NotNull
 	@Column(name = "measureunit")
 	private String measureUnit;
+	
+	@OneToMany(mappedBy = "product")
+	private List<IngredientEntity> ingredients;
 	
 	public ProductEntity() {}
 
@@ -124,6 +130,14 @@ public class ProductEntity {
 
 	public void setMeasureUnit(String measureUnit) {
 		this.measureUnit = measureUnit;
+	}
+
+	public List<IngredientEntity> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(List<IngredientEntity> ingredients) {
+		this.ingredients = ingredients;
 	}
 
 	@Override
