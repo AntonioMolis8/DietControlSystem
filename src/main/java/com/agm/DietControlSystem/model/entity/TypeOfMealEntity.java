@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "TypeOfMeal")
+@Table(name = "typeofmeal")
 public class TypeOfMealEntity {
 	
 	@Id

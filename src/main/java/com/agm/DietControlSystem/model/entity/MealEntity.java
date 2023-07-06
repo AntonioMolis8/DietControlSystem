@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -29,21 +30,22 @@ public class MealEntity {
 	private String name;
 	
 	@NotNull
-	@Column(name = "type")
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "type", referencedColumnName = "id")
 	private TypeOfMealEntity type;
 	
-	@Column(name = "isFavourite")
+	@NotNull
+	@Column(name = "isfavourite")
 	private Boolean isFavourite;
 	
-	@Column(name = "totalCalories")
+	@Column(name = "totalcalories")
 	private Integer totalCalories;
 	
-	@Column(name = "totalProteins")
+	@Column(name = "totalproteins")
 	private Integer totalProteins;
 	
-	@Column(name = "dateOfMeal")
+	@NotNull
+	@Column(name = "dateofmeal")
 	private LocalDateTime dateOfMeal;
 	
 	@OneToMany(mappedBy = "meal")
@@ -123,6 +125,12 @@ public class MealEntity {
 
 	public void setIngredients(List<IngredientEntity> ingredients) {
 		this.ingredients = ingredients;
+	}
+	
+	@PrePersist
+	private void setDefaultFields() {
+		if(this.isFavourite == null) this.isFavourite = false;
+		if(this.dateOfMeal == null) this.dateOfMeal = LocalDateTime.now();
 	}
 
 	@Override

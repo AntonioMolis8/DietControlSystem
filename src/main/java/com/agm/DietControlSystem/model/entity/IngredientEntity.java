@@ -36,14 +36,12 @@ public class IngredientEntity {
 
 	public IngredientEntity() {}
 
-
 	public IngredientEntity(Long id, ProductEntity product, Float quantity, MealEntity meal) {
 		this.id = id;
 		this.product = product;
 		this.quantity = quantity;
 		this.meal = meal;
 	}
-
 
 	public Long getId() {
 		return id;
